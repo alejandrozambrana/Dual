@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+		<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+			<property name="dataSource" ref="dataSource2" />
+	   		<property name="packagesToScan" value="com.loginSpring" />
+	   		<property name="hibernateProperties">
+	        	<props>
+					<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
+					<prop key="hibernate.format_sql">true</prop><!-- Formatear las consultas -->
+					<prop key="hibernate.show_sql">false</prop><!-- Mostrar las consultas en traza -->
+					<!-- update|verify|create|create-drop -->
+					<prop key="hibernate.hbm2ddl.auto">none</prop><!-- Validación del esquema de BBDD -->
+	            </props>
+	      	</property>
+	      	<property name="annotatedClasses">
+			<list>
+				  <value>com.loginSpring.dto.UsuarioDto</value> <!-- Entity classes-->
+			</list>
+			</property>
+	</bean>
+	
+
+	<bean id="dataSource2" class="org.apache.commons.dbcp.BasicDataSource">
+	      <property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+	      <property name="url" value="jdbc:oracle:thin:@//10.100.90.96:1521/xe" />
+	      <property name="username" value="formacion" />
+	      <property name="password" value="formacion" />
+	</bean>
+
+	
+	</beans>
+	

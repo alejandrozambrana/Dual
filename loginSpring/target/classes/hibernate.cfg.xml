@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hibernate-configuration>
+ <session-factory>
+  <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+  <property name="hibernate.connection.url">jdbc:oracle:thin:@10.100.90.96:1521:xe</property>
+  <property name="hibernate.connection.username">formacion</property>
+  <property name="hibernate.connection.password">formacion</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+  <property name="hibernate.default_schema">formacion</property>
+  <property name="show_sql">true</property>
+  <mapping resource="UsuarioDto.hbm.xml"></mapping>
+</session-factory>
+</hibernate-configuration>
